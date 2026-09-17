@@ -30,3 +30,24 @@ bool checkInputIsString(string question) //OOP - could be a base class for check
         return true;
     }
 }
+
+//Function to check for valid user input (integer). Parameter = question, return true or false.
+bool checkInputIsInteger(string question) //OOP - could inherit from the base class for checking input
+{
+    Console.Write($"{question}");
+
+    //Allow null value
+    //string? input = Console.ReadLine();
+
+    //Check for invalid input characters (null/whitespace/non-numeric)
+    if(int.TryParse(Console.ReadLine(), out int input))
+    //if(int.TryParse(input))
+    {
+        inputPrice=input;
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
