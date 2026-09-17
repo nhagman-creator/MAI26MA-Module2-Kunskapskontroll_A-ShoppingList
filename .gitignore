@@ -1,0 +1,6 @@
+# Ignore bin and obj folders everwhere in the repo 
+# since they are just temporary folders created by 
+# dotnet to be able to run my source code
+
+bin/
+obj/
