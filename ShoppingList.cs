@@ -4,30 +4,41 @@
 //Course:   MAI26MA - Module II - Programmering och objektorinterad utveckling in C#
 
 //external variables declaration
-
+//A. questions
 string question1 = "Enter product name: ";
 string question2 = "Enter the Price (integer): ";
+
+//B. validated user inputs
 string? inputProduct = "Empty";
 int inputPrice = 0;
 
-//variables that store the product/prices lists, bouth coupled with an index-tracker
+//C. validated user inputs translated to choices
+string choice = "";
+
+//variables that store the validated product/prices in two lists, both coupled with an index-tracker
 List<string> names = [];
 List<int> prices = [];
 int indexCounter = names.Count;     //index-tracker
 
-//check the input (string) that it is not null, if valid return string, else repeat while not true
+//MAIN EXECUTION CODE
+
+//1.1 Check that the input (string) is not null, if valid return string inputProduct, else repeat while not true
 while(checkInputIsString(question1));
 Console.WriteLine(inputProduct);
 
-//check if the input is to remove a product (existing product-number in the list) or to add a product
+//1.2 Check if the input is to remove a product (existing product-number in the list) or to add a product
 if(int.TryParse(inputProduct, out int number) && number > 0 && number <= indexCounter)
     {
-        names.RemoveAt(number+1);
-        prices.RemoveAt(number+1);
-        Console.WriteLine($"{names[number+1]} has been removed fromt the list");
+        choice = "removeProduct";
+    }
+    else if(inputProduct.ToLower() == "costliest")
+    {
+        choice = "costliest";
+        prices.Sort();
     }
     else
     {
+        choice = "addProduct";
         names.Add(inputProduct);
         Console.WriteLine($"{inputPrice} has been added to the list");
     }
@@ -80,12 +91,22 @@ bool checkInputIsInteger(string question)
     }
 }
 
+(List<string> NamesList, List<int> PriceList) sortCoupledListsAB(List<string> A, List<int> B)
+{
+    return (A, B);
+}
+
 void menu(string choice, string inputProduct, int inputPrice, List<string> names, List<int> prices, int indexCounter);
 {
     switch (choice)
     {
-        case "mostExpensive": break;
-        case "removeProduct": break;
+        case "costliest": break;
+        case "removeProduct": 
+            names.RemoveAt(number+1);
+            prices.RemoveAt(number+1);
+            indexCounter -= 1;
+            Console.WriteLine($"{names[number+1]} has been removed fromt the list");
+            break;
         default: break; //addProduct
     }
 }
