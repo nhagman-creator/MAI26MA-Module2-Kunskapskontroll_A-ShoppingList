@@ -2,7 +2,12 @@
 //Creator:  Arne Hagman
 //Date:     17Sep2026 
 //Course:   MAI26MA - Module II - Programmering och objektorinterad utveckling in C#
-
+//
+/*
+Description: Shopping list. 
+User input: (I) product name (II) price (III) costliest product (IV) remove product (V) exit
+Functionality: To my knowledge, fully functional, and handles all user inputs without crashing. 
+*/
 
 //*************** External variables declaration ******************
 //A. questions
@@ -32,10 +37,12 @@ do
     Console.Clear();
     Console.WriteLine("\t\tSHOPPING LIST");
     Console.WriteLine("_________________________________________");
-    Console.WriteLine("NUMBER\t\tPRODUCT\t\tPRICE");
+    //Console.WriteLine("NUMBER\t\tPRODUCT\t\tPRICE");
+    Console.WriteLine($"{"NUMBER",-10}{"PRODUCT",-20}{"PRICE (sek)",-10}");
     for(int i=0; i < names.Count; i++)
     {
-        Console.Write($"{i+1})\t\t{names[i]}\t\t{prices[i]} sek\n");
+        //Console.Write($"{i+1})\t\t{names[i]}\t\t{prices[i]} sek\n");
+        Console.WriteLine($"{i+1,-10}{names[i],-20}{prices[i],-10}");
     }
     Console.WriteLine("_________________________________________");
     //2.0 Check that the input (string) is not null, if valid return string inputProduct, else repeat while not true
